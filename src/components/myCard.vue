@@ -6,7 +6,8 @@
         <div class="card-info">
             <h1>{{film.title}}</h1>
             <h2>{{film.original_title}}</h2>
-            <p class="language">{{film.original_language}}</p>
+            <lang-flag class="language" :iso="film.original_language"/>
+            <!-- <p class="language">{{film.original_language}}</p> -->
             <p class="vote">{{film.vote_average}}</p>
         </div>
         
@@ -14,6 +15,8 @@
 </template>
 
 <script>
+    import LangFlag from 'vue-lang-code-flags';
+
     export default {
         name: "myCard",
         data(){
@@ -21,6 +24,9 @@
                 //link iniziale delle immagini, che verrà concatenato alla parte finale presa dall'oggetto "film"
                 linkInizialeImmagini: "https://image.tmdb.org/t/p/w342"
             }
+        },
+        components: {
+            LangFlag
         },
         props: ["film"]
     }
@@ -50,13 +56,17 @@
             cursor: pointer;
         }
 
-        h1,h2,p{
+        h1,h2,p, .language{
             color: white;
             position: absolute;
             left: 50%;
             width: 100%;
             transform: translate(-50%, 0);
         }
+        /* img{
+            width: 342px;
+            height: 513px;
+        } */
 
         h1{
             top: 20px;
@@ -65,8 +75,13 @@
         h2{
             top: 200px;
         }
-        p.language{
+        p.language, .language{
             top: 300px;
+        }
+        .language{
+            width: 50px;
+            height: 30px;
+            background-size: cover;
         }
         p.vote{
             top: 400px;
