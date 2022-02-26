@@ -3,7 +3,7 @@
     <img src="https://www.ailequal.com/ajax-ex-boolflix/img/boolflix.png" alt="logo">
 
     <div class="search">
-      <input v-model="titleText" type="text">
+      <input type="text" v-model="titleText" @keyup.enter="searchFilm">
 
       <button @click="searchFilm">Search</button>
     </div>
