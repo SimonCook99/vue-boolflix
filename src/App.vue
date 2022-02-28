@@ -58,6 +58,9 @@ export default {
         this.listaSerieTV = risposta.data.results;
         console.log(this.listaSerieTV);
       })
+
+      /* this.calcolaStelline(this.listaSerieTV); */
+
     }
   }
 }

@@ -1,14 +1,23 @@
 <template>
     <div class="card">
-        <img :src="linkInizialeImmagini + film.poster_path" alt="thumbnail film">
+        
+        <img :src="linkInizialeImmagini + item.poster_path" alt="thumbnail film/serie">
         <div class="overlay"></div>
 
         <div class="card-info">
-            <h1> {{film.title== null ? film.name : film.title}}</h1>
-            <h2>{{film.original_title == null ? film.original_name : film.original_title}}</h2>
-            <lang-flag class="language" :iso="film.original_language"/>
-            <!-- <p class="language">{{film.original_language}}</p> -->
-            <p class="vote">{{film.vote_average}}</p>
+            <h1>{{item.title== null ? item.name : item.title}}</h1>
+            <h2>{{item.original_title == null ? item.original_name : item.original_title}}</h2>
+            <lang-flag class="language" :iso="item.original_language"/>
+            <!-- <p class="language">{{item.original_language}}</p> -->
+
+            <div class="vote">
+                <font-awesome-icon v-for="(star, index) in Math.ceil(item.vote_average / 2)" :key="index" icon="fas fa-star" />
+            
+                <!-- <font-awesome-icon v-for="(star, index2) in 5 - Math.ceil(item.vote_average / 2)" :key="index2" icon="far fa-star" /> -->
+            </div>
+            
+
+            <!-- <p class="vote">{{Math.ceil(item.vote_average / 2)}}</p> -->
         </div>
         
     </div>
@@ -28,7 +37,7 @@
         components: {
             LangFlag
         },
-        props: ["film"]
+        props: ["item"]
     }
 </script>
 
@@ -56,7 +65,7 @@
             cursor: pointer;
         }
 
-        h1,h2,p, .language{
+        h1,h2,p, .language, .vote{
             color: white;
             position: absolute;
             left: 50%;
@@ -83,7 +92,8 @@
             height: 30px;
             background-size: cover;
         }
-        p.vote{
+        div.vote{
+            color: yellow;
             top: 400px;
         }
     }

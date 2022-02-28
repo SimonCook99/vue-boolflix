@@ -2,9 +2,9 @@
     <main>
         <div class="card-container">
             <h1>FILM</h1>
-            <myCard v-for="(film,index) in listaFilm" :key="index" :film="film"/>
+            <myCard v-for="(film,index) in listaFilm" :key="index" :item="film"/>
             <h1>SerieTV</h1>
-            <myCard v-for="serie in listaSerieTV" :key="serie.id" :film="serie"/>
+            <myCard v-for="serie in listaSerieTV" :key="serie.id" :item="serie"/>
         </div>
     </main>
 </template>
@@ -31,5 +31,11 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+    }
+
+    h1{
+        width: 100%;
+        margin: 20px;
+        text-align: center;
     }
 </style>
