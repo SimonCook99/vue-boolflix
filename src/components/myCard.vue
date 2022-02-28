@@ -4,8 +4,8 @@
         <div class="overlay"></div>
 
         <div class="card-info">
-            <h1>{{film.title}}</h1>
-            <h2>{{film.original_title}}</h2>
+            <h1> {{film.title== null ? film.name : film.title}}</h1>
+            <h2>{{film.original_title == null ? film.original_name : film.original_title}}</h2>
             <lang-flag class="language" :iso="film.original_language"/>
             <!-- <p class="language">{{film.original_language}}</p> -->
             <p class="vote">{{film.vote_average}}</p>

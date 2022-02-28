@@ -31,7 +31,7 @@ export default {
     chiamaServer(inputInserito){
       
       this.cercaFilm(inputInserito);
-      this.cercaSerieTV(inputInserito;
+      this.cercaSerieTV(inputInserito);
       
     },
 
