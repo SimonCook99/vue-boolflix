@@ -15,7 +15,7 @@
         components:{
             myCard
         },
-        props:["listaFilm"]
+        props:["listaFilm", "listaSerieTV"]
     }
 </script>
 

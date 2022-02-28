@@ -3,9 +3,9 @@
     <img src="https://www.ailequal.com/ajax-ex-boolflix/img/boolflix.png" alt="logo">
 
     <div class="search">
-      <input type="text" v-model="titleText" @keyup.enter="searchFilm">
+      <input type="text" v-model="titleText" @keyup.enter="search">
 
-      <button @click="searchFilm">Search</button>
+      <button @click="search">Search</button>
     </div>
 
     
@@ -23,9 +23,9 @@
       }
     },
     methods: {
-      searchFilm(){
+      search(){
         //passo il valore della input a app.vue
-        this.$emit("cercaFilm", this.titleText);
+        this.$emit("cerca", this.titleText);
       }
     }
   }
