@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         
-        <img :src="linkInizialeImmagini + item.poster_path" alt="thumbnail film/serie">
+        <img v-if="item.poster_path != null" :src="linkInizialeImmagini + item.poster_path" alt="thumbnail film/serie">
         <div class="overlay"></div>
 
         <div class="card-info">
@@ -10,10 +10,15 @@
             <lang-flag class="language" :iso="item.original_language"/>
             <!-- <p class="language">{{item.original_language}}</p> -->
 
-            <div class="vote">
+            <div v-if="item.vote_average != 0" class="vote">
+
+                <!--Soluzione con il componente font-awesome-icon-->
                 <font-awesome-icon v-for="(star, index) in Math.ceil(item.vote_average / 2)" :key="index" icon="fas fa-star" />
-            
-                <!-- <font-awesome-icon v-for="(star, index2) in 5 - Math.ceil(item.vote_average / 2)" :key="index2" icon="far fa-star" /> -->
+                <font-awesome-icon v-for="(emptyStar, index2) in 5 - Math.ceil(item.vote_average / 2)" :key="index2" :icon="['far', 'fa-star']" />
+
+                <!--soluzione con i normali tag i-->
+                <!-- <i v-for="(star, index) in Math.ceil(item.vote_average / 2)" :key="index" class="fas fa-star"></i> -->
+                <!-- <i v-for="(star, index) in 5 - Math.ceil(item.vote_average / 2)" :key="index" class="fa-regular fa-star"></i> -->
             </div>
             
 
