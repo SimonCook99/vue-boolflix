@@ -6,7 +6,7 @@
             <div class="card-info">
             <h1>{{item.title== null ? item.name : item.title}}</h1>
             <h2>{{item.original_title == null ? item.original_name : item.original_title}}</h2>
-            <lang-flag class="language" :iso="item.original_language"/>
+            <lang-flag class="language" :iso="item.original_language" :squared="false" />
 
             <div v-if="item.vote_average != 0" class="vote">
 
